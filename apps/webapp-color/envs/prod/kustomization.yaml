@@ -9,9 +9,9 @@ helmCharts:
     releaseName: monitoring
     version: 0.0.1
     includeCRDs: true
-    valuesFile: ../../base/values.yml
+    valuesFile: ../../base/values.yaml
     additionalValuesFiles:
-      - values-overwrite.yml
+      - values-overwrite.yaml
 
 # apiVersion: kustomize.config.k8s.io/v1beta1
 # kind: Kustomization
