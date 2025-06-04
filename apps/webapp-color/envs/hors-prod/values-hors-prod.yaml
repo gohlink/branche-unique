@@ -1,0 +1,3 @@
+replicaCount: 2
+app:
+  color: red  # red,green,blue,blue2,pink,darkblue
