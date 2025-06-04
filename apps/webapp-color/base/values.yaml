@@ -3,4 +3,4 @@
 app:
   replicas: 1
   color: pink  # red,green,blue,blue2,pink,darkblue
-  # default is blue, hors-prod is red, prod is green
+  # default in helm is blue, base is pink, hors-prod is red, prod is green
