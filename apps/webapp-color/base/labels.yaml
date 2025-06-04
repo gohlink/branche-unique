@@ -7,5 +7,7 @@ labels:
 fieldSpecs:
 # - path: metadata/labels
 #   create: true
-- path: spec/template/metadata/labels
+- kind: Deployment
+  name: webapp-color-deployment
+  path: spec/template/metadata/labels
   create: false
