@@ -1,0 +1,6 @@
+# These are the default values applied to helm install
+
+app:
+  replicas: 1
+  color: pink  # red,green,blue,blue2,pink,darkblue
+  # default is blue, hors-prod is red, prod is green

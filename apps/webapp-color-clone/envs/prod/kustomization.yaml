@@ -1,0 +1,42 @@
+---
+components:
+  - ../../base/
+
+helmCharts:
+  - name: webapp-color
+    repo: https://marcusjava.github.io/helm-charts-repo/
+    namespace: default
+    releaseName: webapp-color-clone
+    version: 0.1.1
+    includeCRDs: true
+    valuesFile: ../../base/values.yaml
+    additionalValuesFiles:
+      - values-overwrite.yaml
+      - values-overwrite-replicas.yaml
+
+# apiVersion: kustomize.config.k8s.io/v1beta1
+# kind: Kustomization
+
+# resources:
+# - ../../base
+
+# # apiVersion: kustomize.config.k8s.io/v1beta1
+# # kind: Kustomization
+
+# # helmChartInflationGenerator:
+# #   - chartRepoUrl: https://marcusjava.github.io/helm-charts-repo/
+# #     chartName: webapp-color
+# #     releaseName: webapp-color
+# #     releaseNamespace: default
+
+# helmCharts:
+# - name: webapp-color
+#   repo: https://marcusjava.github.io/helm-charts-repo/
+#   releaseName: webapp-color
+#   namespace: default
+#   version: 0.1.1
+#   valuesFile: values-prod.yaml
+
+
+# ## TODO HERE :
+# ## link to helm resource on arti
