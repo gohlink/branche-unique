@@ -1,4 +1,4 @@
 # These are overwritten values applied to env prod helm install
 
 app:
-  replicas: 4
+  replicas: 3
