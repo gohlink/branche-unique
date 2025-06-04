@@ -1,5 +1,4 @@
 # These are overwritten values applied to env prod helm install
 
 app:
-  # replicas: 3
-  color: green  # red,green,blue,blue2,pink,darkblue
+  replicas: 2

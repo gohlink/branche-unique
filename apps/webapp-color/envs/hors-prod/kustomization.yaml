@@ -12,6 +12,7 @@ helmCharts:
     valuesFile: ../../base/values.yaml
     additionalValuesFiles:
       - values-overwrite.yaml
+      - values-overwrite-replicas.yaml
 
 # apiVersion: kustomize.config.k8s.io/v1beta1
 # kind: Kustomization
