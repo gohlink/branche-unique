@@ -3,11 +3,11 @@ components:
   - ../../base/
 
 helmCharts:
-  - name: kube-prometheus-stack
+  - name: webapp-color
     repo: https://marcusjava.github.io/helm-charts-repo/
-    namespace: monitoring
-    releaseName: monitoring
-    version: 0.0.1
+    namespace: default
+    releaseName: default
+    version: 0.1.1
     includeCRDs: true
     valuesFile: ../../base/values.yaml
     additionalValuesFiles:
