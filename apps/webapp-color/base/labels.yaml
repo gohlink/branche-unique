@@ -5,7 +5,7 @@ metadata:
 labels:
   name: webapp-color
 fieldSpecs:
-- path: metadata/labels
-  create: true
+# - path: metadata/labels
+#   create: true
 - path: spec/template/metadata/labels
   create: true
