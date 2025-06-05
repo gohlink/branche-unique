@@ -20,14 +20,14 @@ spec:
           - path: apps/{{ .appName }}
   template:      
     metadata:
-      name: '{{ .path.path.path.path }}'
+      name: '{{ index .path.segments 1 }}'
     spec:
       project: default  ## ?? Maybe appsets files should be defined by project / env instead of just env
 
       sources:
       - repoURL: https://github.com/gohlink/branche-unique.git
         targetRevision: main
-        path: '{{ .path.path }}'
+        path: '{{ .path.path }}/envs/hors-prod'
         ref: values
 
       - repoURL: https://marcusjava.github.io/helm-charts-repo/
