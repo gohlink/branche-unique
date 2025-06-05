@@ -36,9 +36,9 @@ spec:
         helm:
           releaseName: '{{ .appName }}'
           valueFiles:
-          - $values/base/values.yaml
-          - $values/envs/hors-prod/values-overwrite.yaml
-          - $values/envs/hors-prod/values-overwrite-replicas.yaml
+          - $values/apps/{{ .appName }}/base/values.yaml
+          - $values/apps/{{ .appName }}/envs/hors-prod/values-overwrite.yaml
+          - $values/apps/{{ .appName }}/envs/hors-prod/values-overwrite-replicas.yaml
 
       # Destination cluster and namespace to deploy the application
       destination:
