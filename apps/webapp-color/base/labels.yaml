@@ -8,4 +8,4 @@ fieldSpecs:
 - kind: Deployment
   name: webapp-color-deployment
   path: spec/template/metadata/labels
-  create: false
+  create: true
