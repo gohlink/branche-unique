@@ -17,7 +17,7 @@ spec:
           repoURL: https://github.com/gohlink/branche-unique.git
           revision: main
           directories:
-          - path: apps/{{ .appName }}/env/hors-prod ## could be apps/*/env/hors-prod but how to set helm version then ?
+          - path: 'apps/{{ .appName }}/env/hors-prod' ## could be apps/*/env/hors-prod but how to set helm version then ?
   template:      
     metadata:
       name: '{{ index .path.segments 1 }}'
