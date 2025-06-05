@@ -27,7 +27,7 @@ spec:
       sources:
       - repoURL: https://github.com/gohlink/branche-unique.git
         targetRevision: main
-        path: '{{ .path.path }}'
+        path: 'apps/{{ .appName }}/env/hors-prod'
         ref: values
 
       - repoURL: https://marcusjava.github.io/helm-charts-repo/
