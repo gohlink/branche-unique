@@ -35,8 +35,10 @@ spec:
         targetRevision: '{{ .helmVersion }}'   ## Comment sortir cette info dans l'arbo envs ?
         helm:
           valueFiles:
-          - $values/apps/
-      
+          - $values/apps/{{ .appName }}/base/values.yaml
+          - $values/apps/{{ .appName }}/envs/hors-prod/values-overwrite.yaml
+          - $values/apps/{{ .appName }}/envs/hors-prod/values-overwrite-replicas.yaml
+          
       # Destination cluster and namespace to deploy the application
       destination:
         server: https://kubernetes.default.svc
