@@ -10,14 +10,14 @@ spec:
   - matrix:
       generators: ## Mise en place de ce système pour pouvoir assigner une version à une app ... Comment faire autrement ?
       - list:
-          elements: ## List of helm apps to deploy in the cluster
+          elements: ## Liste des applications à déployer et leur version
           - appName: webapp-color
             helmVersion: 0.1.1
       - git:
           repoURL: https://github.com/gohlink/branche-unique.git
           revision: main
           directories:
-          - path: 'apps/{{ .appName }}/env/hors-prod' ## could be apps/*/env/hors-prod but how to set helm version then ?
+          - path: apps/{{ .appName }}
   template:      
     metadata:
       name: '{{ index .path.segments 1 }}'
@@ -27,18 +27,16 @@ spec:
       sources:
       - repoURL: https://github.com/gohlink/branche-unique.git
         targetRevision: main
-        path: 'apps/{{ .appName }}'
+        path: '{{ .path.path }}'
         ref: values
 
       - repoURL: https://marcusjava.github.io/helm-charts-repo/
-        chart: '{{ .appName }}'
-        targetRevision: '{{ .helmVersion }}'
+        chart: '{{ index .path.segments 1 }}'   ## Nom de folder dans apps/
+        targetRevision: '{{ .helmVersion }}'   ## Comment sortir cette info dans l'arbo envs ?
         helm:
           releaseName: '{{ .appName }}'
           valueFiles:
           - $values/apps/{{ .appName }}/base/values.yaml
-          # - $values/values-overwrite.yaml
-          # - $values/values-overwrite-replicas.yaml
           - $values/apps/{{ .appName }}/envs/hors-prod/values-overwrite.yaml
           - $values/apps/{{ .appName }}/envs/hors-prod/values-overwrite-replicas.yaml
 
