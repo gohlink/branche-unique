@@ -7,17 +7,17 @@ spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
-    - matrix:
-        generators:
-          - list:
-              elements:
-                - appName: webapp-color
-                  helmVersion: 0.1.1
-          - git:
-              repoURL: https://github.com/gohlink/branche-unique.git
-              revision: main # tag = helm version 
-              directories:
-              - path: apps/{{ .appName }}/envs/hors-prod    
+  - matrix:
+      generators:
+      - list:
+          elements:
+          - appName: webapp-color
+            helmVersion: 0.1.1
+      - git:
+          repoURL: https://github.com/gohlink/branche-unique.git
+          revision: main # tag = helm version 
+          directories:
+          - path: apps/{{ .appName }}/envs/hors-prod    
   template:      
     metadata:
       name: '{{ index .path.segments 1 }}-{{ index .path.segments 3 }}' 
