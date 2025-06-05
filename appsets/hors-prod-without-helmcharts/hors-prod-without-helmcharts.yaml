@@ -20,14 +20,14 @@ spec:
           - path: apps/{{ .appName }}/env/hors-prod ## could be apps/*/env/hors-prod but how to set helm version then ?
   template:      
     metadata:
-      name: '{{ index .path.segments 1 }}'
+      name: '{{ index .path.segments 1 }}-{{ .path.path }}'
     spec:
       project: default  ## ?? Maybe appsets files should be defined by project / env instead of just env
 
       sources:
       - repoURL: https://github.com/gohlink/branche-unique.git
         targetRevision: main
-        path: '{{ .path.path }}/envs/hors-prod'
+        path: '{{ .path.path }}'
         ref: values
 
       - repoURL: https://marcusjava.github.io/helm-charts-repo/
