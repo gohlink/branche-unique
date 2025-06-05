@@ -10,17 +10,17 @@ spec:
   - matrix:
       generators:
       - list:
-          elements:
+          elements: ## Liste des applications à déployer et leur version
           - appName: webapp-color
             helmVersion: 0.1.1
       - git:
           repoURL: https://github.com/gohlink/branche-unique.git
-          revision: main # tag = helm version 
+          revision: main
           directories:
-          - path: apps/{{ .appName }} 
+          - path: apps/{{ .appName }}
   template:      
     metadata:
-      name: '{{ index .path.segments 1 }}-{{ index .path.segments 3 }}' 
+      name: '{{ index .path.segments 1 }}-{{ index .path.segments 2 }}' 
     spec:
       project: default  ## ?? Maybe appsets files should be defined by project / env instead of just env
 
