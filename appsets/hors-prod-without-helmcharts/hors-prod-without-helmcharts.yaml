@@ -33,8 +33,8 @@ spec:
       - repoURL: https://marcusjava.github.io/helm-charts-repo/
         chart: '{{ index .path.segments 1 }}'   ## Nom de folder dans apps/
         targetRevision: '{{ .helmVersion }}'   ## Comment sortir cette info dans l'arbo envs ?
-        releaseName: '{{ .appName }}'
         helm:
+          releaseName: '{{ .appName }}'
           valueFiles:
           - $values/apps/{{ .appName }}/base/values.yaml
           - $values/apps/{{ .appName }}/envs/hors-prod/values-overwrite.yaml
