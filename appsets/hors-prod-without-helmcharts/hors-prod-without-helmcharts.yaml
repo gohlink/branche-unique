@@ -38,7 +38,7 @@ spec:
           - $values/apps/{{ .appName }}/base/values.yaml
           - $values/apps/{{ .appName }}/envs/hors-prod/values-overwrite.yaml
           - $values/apps/{{ .appName }}/envs/hors-prod/values-overwrite-replicas.yaml
-          
+
       # Destination cluster and namespace to deploy the application
       destination:
         server: https://kubernetes.default.svc
