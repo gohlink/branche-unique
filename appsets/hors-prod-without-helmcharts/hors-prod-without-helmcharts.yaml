@@ -20,7 +20,7 @@ spec:
           - path: apps/{{ .appName }}/env/hors-prod ## could be apps/*/env/hors-prod but how to set helm version then ?
   template:      
     metadata:
-      name: '{{ index .path.segments 1 }}-{{ .path.path }}'
+      name: '{{ index .path.segments 1 }}'
     spec:
       project: default  ## ?? Maybe appsets files should be defined by project / env instead of just env
 
