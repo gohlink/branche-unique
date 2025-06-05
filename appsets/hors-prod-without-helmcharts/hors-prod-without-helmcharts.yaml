@@ -17,17 +17,17 @@ spec:
           repoURL: https://github.com/gohlink/branche-unique.git
           revision: main
           directories:
-          - path: apps/{{ .appName }}
+          - path: apps/{{ .appName }} ## apps/webapp-color
   template:      
     metadata:
-      name: '{{ index .path.segments 1 }}-{{ .path.path }}'
+      name: '{{ index .path.segments 1 }}'
     spec:
       project: default  ## ?? Maybe appsets files should be defined by project / env instead of just env
 
       sources:
       - repoURL: https://github.com/gohlink/branche-unique.git
         targetRevision: main
-        path: '{{ .path.path }}'
+        path: '{{ .path.path }}' ## apps/webapp-color
         ref: values
 
       - repoURL: https://marcusjava.github.io/helm-charts-repo/
@@ -36,9 +36,9 @@ spec:
         helm:
           releaseName: '{{ .appName }}'
           valueFiles:
-          - $values/apps/{{ .appName }}/base/values.yaml
-          - $values/apps/{{ .appName }}/envs/hors-prod/values-overwrite.yaml
-          - $values/apps/{{ .appName }}/envs/hors-prod/values-overwrite-replicas.yaml
+          - $values/base/values.yaml
+          - $values/envs/hors-prod/values-overwrite.yaml
+          - $values/envs/hors-prod/values-overwrite-replicas.yaml
 
       # Destination cluster and namespace to deploy the application
       destination:
