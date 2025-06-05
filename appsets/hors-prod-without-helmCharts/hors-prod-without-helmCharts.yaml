@@ -8,6 +8,7 @@ spec:
   goTemplateOptions: ["missingkey=error"]
   generators:
   - matrix:
+    generators:
     - list:
         elements:
           - appName: webapp-color
