@@ -8,16 +8,16 @@ spec:
   goTemplateOptions: ["missingkey=error"]
   generators:
   - matrix:
-      generators:
+      generators: ## Mise en place de ce système pour pouvoir assigner une version à une app ... Comment faire autrement ?
       - list:
-          elements: ## Liste des applications à déployer et leur version
+          elements: ## List of helm apps to deploy in the cluster
           - appName: webapp-color
             helmVersion: 0.1.1
       - git:
           repoURL: https://github.com/gohlink/branche-unique.git
           revision: main
           directories:
-          - path: apps/{{ .appName }}
+          - path: apps/{{ .appName }} ## could be apps/* but how to set helm version then ?
   template:      
     metadata:
       name: '{{ index .path.segments 1 }}'
@@ -31,8 +31,8 @@ spec:
         ref: values
 
       - repoURL: https://marcusjava.github.io/helm-charts-repo/
-        chart: '{{ index .path.segments 1 }}'   ## Nom de folder dans apps/
-        targetRevision: '{{ .helmVersion }}'   ## Comment sortir cette info dans l'arbo envs ?
+        chart: '{{ .appName }}'
+        targetRevision: '{{ .helmVersion }}'
         helm:
           releaseName: '{{ .appName }}'
           valueFiles:
