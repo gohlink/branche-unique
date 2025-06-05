@@ -1,4 +1,4 @@
-# These are the default values applied to helm install
+# These are the default values applied to helm install, they could be overwritten by files in envs folder
 
 app:
   replicas: 1
