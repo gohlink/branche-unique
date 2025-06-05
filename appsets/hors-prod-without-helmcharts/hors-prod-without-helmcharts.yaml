@@ -17,7 +17,7 @@ spec:
               repoURL: https://github.com/gohlink/branche-unique.git
               revision: main # tag = helm version 
               directories:
-              - path: apps/{{ appName }}/envs/hors-prod    
+              - path: apps/{{ .appName }}/envs/hors-prod    
   template:      
     metadata:
       name: '{{ index .path.segments 1 }}-{{ index .path.segments 3 }}' 
