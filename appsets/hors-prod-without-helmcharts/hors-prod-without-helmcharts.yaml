@@ -20,7 +20,7 @@ spec:
           - path: apps/{{ .appName }}
   template:      
     metadata:
-      name: '{{ index .path.segments 1 }}-{{ index .path.segments 2 }}' 
+      name: '{{ index .path.segments 1 }}' 
     spec:
       project: default  ## ?? Maybe appsets files should be defined by project / env instead of just env
 
