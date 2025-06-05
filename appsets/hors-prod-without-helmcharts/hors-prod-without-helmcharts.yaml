@@ -27,7 +27,7 @@ spec:
       sources:
       - repoURL: https://github.com/gohlink/branche-unique.git
         targetRevision: main
-        path: 'apps/{{ .appName }}/env/hors-prod'
+        path: 'apps/{{ .appName }}'
         ref: values
 
       - repoURL: https://marcusjava.github.io/helm-charts-repo/
@@ -39,6 +39,8 @@ spec:
           # - $values/apps/{{ .appName }}/base/values.yaml
           - $values/values-overwrite.yaml
           - $values/values-overwrite-replicas.yaml
+          # - $values/apps/{{ .appName }}/envs/hors-prod/values-overwrite.yaml
+          # - $values/apps/{{ .appName }}/envs/hors-prod/values-overwrite-replicas.yaml
 
       # Destination cluster and namespace to deploy the application
       destination:
