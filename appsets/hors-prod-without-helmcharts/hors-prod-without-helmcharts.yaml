@@ -33,7 +33,7 @@ spec:
         ref: values
 
       - repoURL: oci://demo.goharbor.io/testgohlink/
-        chart: '{{ index .path.segments 1 }}'   ## Nom de folder dans apps/
+        chart: '{{ .appName }}'   ## Nom de folder dans apps/
         targetRevision: '{{ .helmVersion }}'   ## Comment sortir cette info dans l'arbo envs ?
         helm:
           releaseName: '{{ .appName }}'
