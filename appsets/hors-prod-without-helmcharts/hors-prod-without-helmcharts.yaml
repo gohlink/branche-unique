@@ -27,7 +27,7 @@ spec:
       sources:
       - repoURL: https://github.com/gohlink/branche-unique.git
         targetRevision: main
-        path: '{{ .path.path }}' ## apps/webapp-color
+        path: '{{ .path.path }}/env/hors-prod' ## If the path field is set in the $values source, Argo CD will attempt to generate resources from the git repository at that URL
         ref: values
 
       - repoURL: https://marcusjava.github.io/helm-charts-repo/
@@ -35,7 +35,8 @@ spec:
         targetRevision: '{{ .helmVersion }}'   ## Comment sortir cette info dans l'arbo envs ?
         helm:
           releaseName: '{{ .appName }}'
-          valueFiles:
+          valueFiles: ## Even when the ref field is configured with the path field, $value still represents the root 
+          ## of sources with the ref field. Consequently, valueFiles must be specified as relative paths from the root of sources.
           - $values/apps/{{ .appName }}/base/values.yaml
           - $values/apps/{{ .appName }}/envs/hors-prod/values-overwrite.yaml
           - $values/apps/{{ .appName }}/envs/hors-prod/values-overwrite-replicas.yaml
