@@ -27,7 +27,7 @@ spec:
       sources:
       - repoURL: https://github.com/gohlink/branche-unique.git
         targetRevision: main
-        path: '{{ .path.path }}/env/hors-prod' ## If the path field is set in the $values source, Argo CD will attempt to generate resources from the git repository at that URL
+        path: '{{ .path.path }}/envs/hors-prod' ## If the path field is set in the $values source, Argo CD will attempt to generate resources from the git repository at that URL
         ref: values
 
       - repoURL: https://marcusjava.github.io/helm-charts-repo/
