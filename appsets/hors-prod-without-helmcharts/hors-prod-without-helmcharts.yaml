@@ -32,7 +32,7 @@ spec:
         path: '{{ .path.path }}' # no diff using {{ .path.path }}/envs/hors-prod or {{ .path.path }}
         ref: values
 
-      - repoURL: https://demo.goharbor.io/testgohlink/webapp-color
+      - repoURL: https://demo.goharbor.io
         chart: '{{ index .path.segments 1 }}'   ## Nom de folder dans apps/
         targetRevision: '{{ .helmVersion }}'   ## Comment sortir cette info dans l'arbo envs ?
         helm:
