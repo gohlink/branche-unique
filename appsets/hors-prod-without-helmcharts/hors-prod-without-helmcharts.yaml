@@ -38,6 +38,7 @@ spec:
         path: '{{ .appName }}'
         helm:
           releaseName: '{{ .appName }}'
+          passCredentials: true
           valueFiles: ## Even when the ref field is configured with the path field, $value still represents the root 
           ## of sources with the ref field. Consequently, valueFiles must be specified as relative paths from the root of sources.
           - $values/apps/{{ .appName }}/base/values.yaml
