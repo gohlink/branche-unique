@@ -35,6 +35,7 @@ spec:
       - repoURL: demo.goharbor.io/testgohlink
         chart: '{{ .appName }}'   ## Nom de folder dans apps/
         targetRevision: '{{ .helmVersion }}'   ## Comment sortir cette info dans l'arbo envs ?
+        path: '{{ .appName }}'
         helm:
           releaseName: '{{ .appName }}'
           valueFiles: ## Even when the ref field is configured with the path field, $value still represents the root 
