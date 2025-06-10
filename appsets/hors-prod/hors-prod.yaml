@@ -14,7 +14,7 @@ spec:
       - path: apps/*/envs/hors-prod    
   template:      
     metadata:
-      name: '{{index .path.segments 1}}-{{index .path.segments 3}}-{{.path.path}}' 
+      name: '{{index .path.segments 1}}-{{index .path.segments 3}}-{{.path}}' 
     spec:
       # The project the application belongs to.
       project: default
