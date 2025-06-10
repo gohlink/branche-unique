@@ -5,7 +5,7 @@ components:
 # this block should be commented when working "*-without-helmcharts"
 helmCharts:
   - name: webapp-color
-    repo: demo.goharbor.io/testgohlink
+    repo: oci://demo.goharbor.io/testgohlink
     # repo: https://marcusjava.github.io/helm-charts-repo/
     namespace: default
     releaseName: webapp-color
