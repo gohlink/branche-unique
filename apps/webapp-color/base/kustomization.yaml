@@ -6,6 +6,3 @@ namespace: default
 
 transformers:
   - labels.yaml
-
-helmGlobals:
-  chartHome: ../../../charts

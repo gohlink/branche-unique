@@ -16,3 +16,6 @@ helmCharts:
     additionalValuesFiles:
       - values-overwrite.yaml
       - values-overwrite-replicas.yaml
+
+helmGlobals:
+  chartHome: ../../../../charts
