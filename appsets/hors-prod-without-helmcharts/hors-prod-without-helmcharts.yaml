@@ -33,7 +33,7 @@ spec:
         ref: values
 
       - repoURL: demo.goharbor.io/testgohlink
-        chart: '{{ .appName }}'   ## Nom de folder dans apps/
+        chart: '{{ .appName }}'
         targetRevision: '{{ .helmVersion }}'   ## Comment sortir cette info dans l'arbo envs ?
         path: '{{ .appName }}'
         helm:
@@ -45,12 +45,10 @@ spec:
           - $values/apps/{{ .appName }}/envs/hors-prod/values-overwrite.yaml
           - $values/apps/{{ .appName }}/envs/hors-prod/values-overwrite-replicas.yaml
 
-      # Destination cluster and namespace to deploy the application
       destination:
         server: https://kubernetes.default.svc
         namespace: default ## '{{ index .path.segments 1 }}-{{ index .path.segments 3 }}' ex: webapp-color-hors-prod
 
-      # Sync policy
       syncPolicy:
         syncOptions:
           - CreateNamespace=true  
