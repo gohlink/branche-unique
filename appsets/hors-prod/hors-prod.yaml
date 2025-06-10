@@ -23,7 +23,7 @@ spec:
       source:
         repoURL: https://github.com/gohlink/branche-unique.git
         targetRevision: main
-        path: '{{.path.path}}/../../base'
+        path: '{{.path.path}}'
       
       # Destination cluster and namespace to deploy the application
       destination:
