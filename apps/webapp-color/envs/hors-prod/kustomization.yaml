@@ -20,4 +20,4 @@ helmCharts:
 ## Pas réussi à prendre en compte des charts extraits déjà présents
 helmGlobals:
   chartHome: ../../../../charts
-  helmGlobals.configHome: /helm-working-dir/
+  configHome: /helm-working-dir/
