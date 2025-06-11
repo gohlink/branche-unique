@@ -24,6 +24,10 @@ spec:
         repoURL: https://github.com/gohlink/branche-unique.git
         targetRevision: main
         path: '{{.path.path}}'
+
+        ## Can also be set as configmap if we want to apply server-wide
+        # kustomize:
+        #   buildOptions: --enable-helm
       
       # Destination cluster and namespace to deploy the application
       destination:
