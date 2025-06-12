@@ -4,3 +4,5 @@ app:
   replicas: 1
   color: pink  # red,green,blue,blue2,pink,darkblue
   # default is blue, hors-prod is red, prod is green
+imagePullSecrets:
+- name: registry-credentials

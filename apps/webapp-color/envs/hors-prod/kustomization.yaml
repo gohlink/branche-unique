@@ -18,6 +18,5 @@ helmCharts:
       - values-overwrite-replicas.yaml
 
 helmGlobals:
-  chartHome: ../../../../charts
   ## use this configHome because it has credentials
   configHome: /helm-working-dir/
