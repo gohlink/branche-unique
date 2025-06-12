@@ -49,7 +49,7 @@ spec:
         ## I did not find a way to make both helm & kustomize work with multi sourcing ...
         kustomize:
           components:
-          - ../../base/kustomization.yaml
+          - ../../base/
 
 
       destination:
