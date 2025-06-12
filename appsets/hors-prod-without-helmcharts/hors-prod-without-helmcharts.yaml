@@ -8,7 +8,8 @@ spec:
   goTemplateOptions: ["missingkey=error"]
   generators:
   - matrix:
-      generators: ## Mise en place de ce système pour pouvoir assigner une version à une app ... Comment faire autrement ?
+      generators: ## Mise en place de ce système pour pouvoir assigner une version à une app ...
+      ## Comment faire autrement ?
       - list:
           elements: ## Liste des applications à déployer et leur version
           - appName: webapp-color
@@ -22,17 +23,14 @@ spec:
     metadata:
       name: '{{ index .path.segments 1 }}'
     spec:
-      project: default  ## ?? Maybe appsets files should be defined by project / env instead of just env
+      project: default
 
       sources:
       - repoURL: demo.goharbor.io/testgohlink
         chart: '{{ .appName }}'
         targetRevision: '{{ .helmVersion }}'   ## Comment sortir cette info dans l'arbo envs ?
         path: '{{ .appName }}'
-        # kustomize:
-        #   components:
-        #   - ../../base/kustomization.yaml
-        #   buildOptions: --enable-helm
+
         helm:
           releaseName: '{{ .appName }}'
           passCredentials: true
@@ -48,9 +46,10 @@ spec:
         ## It does use the path (crash when not existing) but not using kustomize.yaml
         path: '{{ .path.path }}' # no diff using {{ .path.path }}/envs/hors-prod or {{ .path.path }}
         ref: values
+        ## I did not find a way to make both helm & kustomize work with multi sourcing ...
         kustomize:
           components:
-          - ../../base/kustomization.yaml
+          - base/kustomization.yaml
 
 
       destination:
