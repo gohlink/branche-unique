@@ -3,19 +3,19 @@ components:
   - ../../base/
 
 # this block should be commented when working "*-without-helmcharts"
-# helmCharts:
-#   - name: webapp-color
-#     repo: oci://demo.goharbor.io/testgohlink
-#     # repo: https://marcusjava.github.io/helm-charts-repo/
-#     namespace: default
-#     releaseName: webapp-color
-#     # version: 0.1.1
-#     version: 0.1.2
-#     includeCRDs: true
-#     valuesFile: ../../base/values.yaml
-#     additionalValuesFiles:
-#       - values-overwrite.yaml
-#       - values-overwrite-replicas.yaml
+helmCharts:
+  - name: webapp-color
+    repo: oci://demo.goharbor.io/testgohlink
+    # repo: https://marcusjava.github.io/helm-charts-repo/
+    namespace: default
+    releaseName: webapp-color
+    # version: 0.1.1
+    version: 0.1.2
+    includeCRDs: true
+    valuesFile: ../../base/values.yaml
+    additionalValuesFiles:
+      - values-overwrite.yaml
+      - values-overwrite-replicas.yaml
 
 helmGlobals:
   ## use this configHome because it has credentials
