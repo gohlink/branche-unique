@@ -50,7 +50,7 @@ spec:
         ## I did not find a way to make both helm & kustomize work with multi sourcing ...
         kustomize:
           components:
-          - base/components/label-transformer
+          - ../../base/components/label-transformer
 
 
       destination:
