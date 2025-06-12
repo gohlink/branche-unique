@@ -1,7 +1,4 @@
 ---
-components:
-  - ../../base/
-
 # this block should be commented when working "*-without-helmcharts"
 helmCharts:
   - name: webapp-color

@@ -8,7 +8,7 @@ resources:
 components:
   - ../../base/components/label-transformer
 
-#this block should be commented when working "*-without-helmcharts"
+# This block should be commented when working "*-without-helmcharts"
 helmCharts:
   - name: webapp-color
     repo: oci://demo.goharbor.io/testgohlink

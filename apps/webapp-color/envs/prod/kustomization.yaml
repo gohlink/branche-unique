@@ -1,8 +1,14 @@
 ---
-components:
-  - ../../base/
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
 
-# this block should be commented when working "*-without-helmcharts"
+resources:
+  - ../../base
+
+components:
+  - ../../base/components/label-transformer
+
+# This block should be commented when working "*-without-helmcharts"
 helmCharts:
   - name: webapp-color
     repo: oci://demo.goharbor.io/testgohlink
