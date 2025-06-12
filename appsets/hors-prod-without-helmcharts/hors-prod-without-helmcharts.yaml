@@ -36,7 +36,9 @@ spec:
         chart: '{{ .appName }}'
         targetRevision: '{{ .helmVersion }}'   ## Comment sortir cette info dans l'arbo envs ?
         path: '{{ .appName }}'
-        # kustomize:
+        kustomize:
+          components:
+          - ../../base/kustomization.yaml
         #   buildOptions: --enable-helm
         helm:
           releaseName: '{{ .appName }}'
