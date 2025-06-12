@@ -48,6 +48,7 @@ spec:
         ref: values
         ## I did not find a way to make both helm & kustomize work with multi sourcing ...
         kustomize:
+          namePrefix : toto-
           components:
           - ../../base/
 
