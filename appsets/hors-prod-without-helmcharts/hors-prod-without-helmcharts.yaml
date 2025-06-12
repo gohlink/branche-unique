@@ -48,7 +48,9 @@ spec:
         ## It does use the path (crash when not existing) but not using kustomize.yaml
         path: '{{ .path.path }}' # no diff using {{ .path.path }}/envs/hors-prod or {{ .path.path }}
         ref: values
-
+        kustomize:
+          components:
+          - ../../base/kustomization.yaml
 
 
       destination:
