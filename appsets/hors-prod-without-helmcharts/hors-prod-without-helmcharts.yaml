@@ -47,9 +47,9 @@ spec:
         path: '{{ .path.path }}/envs/hors-prod' # no diff using {{ .path.path }}/envs/hors-prod or {{ .path.path }}
         ref: values
         ## I did not find a way to make both helm & kustomize work with multi sourcing ...
-        # kustomize:
-        #   components:
-        #   - base/kustomization.yaml
+        kustomize:
+          components:
+          - ../../base/kustomization.yaml
 
 
       destination:
