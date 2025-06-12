@@ -16,7 +16,3 @@ helmCharts:
     additionalValuesFiles:
       - values-overwrite.yaml
       - values-overwrite-replicas.yaml
-
-# helmGlobals:
-#   ## use this configHome because it has credentials
-#   configHome: /helm-working-dir/
