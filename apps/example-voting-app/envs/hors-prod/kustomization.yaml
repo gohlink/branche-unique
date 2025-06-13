@@ -8,13 +8,12 @@ resources:
 components:
   - ../../base/components/label-transformer
 
-# This block should be commented when working "*-without-helmcharts"
 helmCharts:
   - name: example-voting-app
     repo: oci://demo.goharbor.io/testgohlink
     namespace: default
     releaseName: example-voting-app
-    version: 0.1.3
+    version: 0.1.5
     includeCRDs: true
     valuesFile: ../../base/values.yaml
     additionalValuesFiles:
