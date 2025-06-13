@@ -13,7 +13,7 @@ helmCharts:
     repo: oci://demo.goharbor.io/testgohlink
     namespace: default
     releaseName: example-voting-app
-    version: 0.1.5
+    version: 0.1.6
     includeCRDs: true
     valuesFile: ../../base/values.yaml
     additionalValuesFiles:
