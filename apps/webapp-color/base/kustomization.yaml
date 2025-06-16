@@ -4,3 +4,14 @@ kind: Kustomization
 
 components:
   - ./components/label-transformer
+
+helmCharts:
+  - name: webapp-color
+    repo: oci://demo.goharbor.io/testgohlink
+    # repo: https://marcusjava.github.io/helm-charts-repo/
+    namespace: default
+    releaseName: webapp-color
+    # version: 0.1.1
+    version: 0.1.2
+    includeCRDs: true
+    valuesFile: values.yaml
