@@ -8,17 +8,15 @@ resources:
 components:
   - ../../base/components/label-transformer
 
-# This block should be commented when working "*-without-helmcharts"
+# Référence l'applicatif souhaité ainsi que sa version
 helmCharts:
-  - name: webapp-color
-    repo: oci://demo.goharbor.io/testgohlink
-    # repo: https://marcusjava.github.io/helm-charts-repo/
+  - name: webapp-color # Nom du chart helm à télécharger dans le dépôt helm
+    repo: oci://demo.goharbor.io/testgohlink # Dépôt helm
     namespace: default
-    releaseName: webapp-color
-    # version: 0.1.1
-    version: 0.1.2
+    releaseName: webapp-color # Nom de l'applicatif une fois le chart déployé
+    version: 0.1.2 # Version du helm
     includeCRDs: true
     valuesFile: ../../base/values.yaml
     additionalValuesFiles:
-      - values-overwrite.yaml
-      - values-overwrite-replicas.yaml
+      - values-static-business.yaml
+      - values-kubernetes.yaml

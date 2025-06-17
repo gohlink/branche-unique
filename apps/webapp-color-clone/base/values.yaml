@@ -1,8 +1,7 @@
-# These are the default values applied to helm install, they could be overwritten by files in envs folder
-
+# Le fichier base/values.yaml doit inclure les paramètres métiers communs
+# entre les environnements.
 app:
-  replicas: 1
-  color: pink  # red,green,blue,blue2,pink,darkblue
-  # default is blue, hors-prod is red, prod is green
-imagePullSecrets:
-- name: registry-credentials
+# exemples fictifs :
+  vatRate: 0.2
+  databaseEncoding: UTF-8
+  externalDatabasePort: 5432
