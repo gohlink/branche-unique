@@ -12,7 +12,6 @@ components:
 helmCharts:
   - name: webapp-color # Nom du chart helm à télécharger dans le dépôt helm
     repo: oci://demo.goharbor.io/testgohlink # Dépôt helm
-    namespace: default
     releaseName: webapp-color # Nom de l'applicatif une fois le chart déployé
     version: 0.1.2 # Version du helm
     includeCRDs: true
