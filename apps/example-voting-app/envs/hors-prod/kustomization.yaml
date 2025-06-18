@@ -15,7 +15,7 @@ helmCharts:
     releaseName: example-voting-app
     version: 0.1.6
     includeCRDs: true
-    valuesFile: ../../base/values.yaml
+    valuesFile: ../../base/common-values.yaml
     additionalValuesFiles:
-      - values-overwrite.yaml
-      - values-overwrite-replicas.yaml
+      - business-values.yaml
+      - kubernetes-values.yaml

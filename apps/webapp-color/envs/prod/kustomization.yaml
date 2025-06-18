@@ -16,7 +16,7 @@ helmCharts:
     releaseName: webapp-color # Nom de l'applicatif une fois le chart déployé
     version: 0.1.2 # Version du helm
     includeCRDs: true
-    valuesFile: ../../base/values.yaml
+    valuesFile: ../../base/common-values.yaml
     additionalValuesFiles:
-      - values-static-business.yaml
-      - values-kubernetes.yaml
+      - business-values.yaml
+      - kubernetes-values.yaml
