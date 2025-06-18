@@ -1,0 +1,65 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: hors-prod-without-helmcharts-appset
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - matrix:
+      generators:
+      - list:
+          elements: ## Liste des applications à déployer et leur version
+          - appName: webapp-color
+            helmVersion: 0.1.2
+      - git:
+          repoURL: https://github.com/gohlink/branche-unique.git
+          revision: main
+          directories:
+          - path: apps/{{ .appName }} ## apps/webapp-color
+  template:
+    metadata:
+      name: '{{ index .path.segments 1 }}'
+    spec:
+      project: default
+
+      sources:
+
+      - repoURL: demo.goharbor.io/testgohlink
+        chart: '{{ .appName }}'
+        targetRevision: '{{ .helmVersion }}' ## Comment sortir cette info dans l'arbo envs ?
+        path: '{{ .appName }}'
+
+        helm:
+          releaseName: '{{ .appName }}'
+          passCredentials: true
+          valueFiles: ## Even when the ref field is configured with the path field, $value still represents the root
+          ## of sources with the ref field. Consequently, valueFiles must be specified as relative paths from the root of sources.
+          - $values/apps/{{ .appName }}/base/common-values.yaml
+          - $values/apps/{{ .appName }}/envs/hors-prod/business-values.yaml
+          - $values/apps/{{ .appName }}/envs/hors-prod/kubernetes-values.yaml
+
+      - repoURL: https://github.com/gohlink/branche-unique.git
+        targetRevision: main
+        # Doc says "If the path field is set in the $values source, Argo CD will attempt to generate resources from the git repository at that URL"
+        ## It does use the path (crash when not existing) but not using kustomize.yaml
+        path: '{{ .path.path }}/envs/hors-prod' # no diff using {{ .path.path }}/envs/hors-prod or {{ .path.path }}
+        ref: values
+        ## I did not find a way to make both helm & kustomize work with multi sourcing ...
+        # kustomize:
+        #   components:
+        #   - ../../base/components/label-transformer
+
+
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: default ## '{{ index .path.segments 1 }}-{{ index .path.segments 3 }}' ex: webapp-color-hors-prod
+
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true
+        automated: # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.
+          prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
+          selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
+      
