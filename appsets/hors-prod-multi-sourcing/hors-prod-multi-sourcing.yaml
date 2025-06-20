@@ -17,7 +17,7 @@ spec:
           repoURL: https://github.com/gohlink/branche-unique.git
           revision: main
           directories:
-          - path: apps/{{ .appName }} ## apps/webapp-color
+          - path: apps/{{ .appName }}/envs/hors-prod-multi-sourcing ## apps/webapp-color
   template:
     metadata:
       name: '{{ index .path.segments 1 }}'
@@ -44,7 +44,7 @@ spec:
         targetRevision: main
         # Doc says "If the path field is set in the $values source, Argo CD will attempt to generate resources from the git repository at that URL"
         ## It does use the path (crash when not existing) but not using kustomize.yaml
-        path: '{{ .path.path }}/envs/hors-prod-multi-sourcing' # no diff using {{ .path.path }}/envs/hors-prod or {{ .path.path }}
+        path: '{{ .path.path }}' # no diff using {{ .path.path }}/envs/hors-prod or {{ .path.path }}
         ref: values
         ## I did not find a way to make both helm & kustomize work with multi sourcing ...
         # kustomize:
