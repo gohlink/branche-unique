@@ -24,8 +24,8 @@ spec:
         path: '{{.path.path}}' ## <=== Pointe vers le répertoire envs/hors-prod de chaque application trouvée par le générateur
 
         ## Can also be set as configmap if we want to apply server-wide
-        # kustomize:
-        #   buildOptions: --enable-helm
+        kustomize:
+          buildOptions: --enable-helm
 
       destination:
         server: https://kubernetes.default.svc
