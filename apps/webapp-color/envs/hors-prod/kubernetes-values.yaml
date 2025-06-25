@@ -1,6 +1,7 @@
 # Ce fichier porte les paramètres helm spécifiques à kubernetes
 imagePullSecrets:
   - name: registry-credentials
+dockerRegistry: 192.168.1.248
 app:
   replicas: 2
   requests:
